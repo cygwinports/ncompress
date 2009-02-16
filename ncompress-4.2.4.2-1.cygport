@@ -1,0 +1,21 @@
+DESCRIPTION="LZW file de/compressor"
+HOMEPAGE="http://ncompress.sourceforge.net/"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	ln -sf Makefile.def Makefile
+	cygmake CPPFLAGS="${CFLAGS} ${CPPFLAGS} -DNOFUNCDEF"
+}
+
+src_install() {
+	cd ${B}
+	dobin compress.exe
+	dosym compress.exe /usr/bin/uncompress
+
+	echo ".so compress.1" > uncompress.1
+	doman compress.1 uncompress.1
+
+	dodoc Acknowleds LZW.INFO
+}

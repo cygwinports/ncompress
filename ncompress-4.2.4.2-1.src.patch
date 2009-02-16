@@ -1,0 +1,56 @@
+--- origsrc/ncompress-4.2.4.2/compress.1	2007-09-06 22:28:42.000000000 -0500
++++ src/ncompress-4.2.4.2/compress.1	2007-09-09 12:01:56.890625000 -0500
+@@ -1,7 +1,7 @@
+ .PU
+ .TH COMPRESS 1 local
+ .SH NAME
+-compress, uncompress, zcat \- compress and expand data
++compress, uncompress \- compress and expand data
+ .SH SYNOPSIS
+ .ll +8
+ .B compress
+@@ -35,13 +35,6 @@
+ ] [
+ .I "name \&..."
+ ]
+-.br
+-.B zcat
+-[
+-.B \-V
+-] [
+-.I "name \&..."
+-]
+ .SH DESCRIPTION
+ .I Compress
+ reduces the size of the named files using adaptive Lempel-Ziv coding.
+@@ -68,9 +61,7 @@
+ the user is prompted as to whether an existing file should be overwritten.
+ .PP
+ Compressed files can be restored to their original form using
+-.I uncompress
+-or
+-.I zcat.
++.I uncompress.
+ .PP
+ .I uncompress
+ takes a list of files on its command line and replaces each
+@@ -88,19 +79,6 @@
+ .I compress/uncompress
+ write to the standard output; no files are changed.
+ .PP
+-.I zcat
+-is identical to
+-.I uncompress
+-.B \-c.
+-.I zcat
+-uncompresses either a list of files on the command line or its
+-standard input and writes the uncompressed data on standard output.
+-.I zcat
+-will uncompress files that have the correct magic number whether
+-they have a
+-.B "\&.Z"
+-suffix or not.
+-.PP
+ If the
+ .B \-r
+ flag is specified, 
