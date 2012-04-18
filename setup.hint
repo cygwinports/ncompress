@@ -1,5 +1,5 @@
 category: Archive
-requires: cygwin
+requires:
 sdesc: "Old LZW file compressor/decompressor"
 ldesc: "Compress is a fast, simple LZW file compressor.  Compress does
 not have the highest compression rate, but it is one of the fastest
