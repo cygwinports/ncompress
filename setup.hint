@@ -1,9 +1,0 @@
-category: Archive
-requires:
-sdesc: "Old LZW file compressor/decompressor"
-ldesc: "Compress is a fast, simple LZW file compressor.  Compress does
-not have the highest compression rate, but it is one of the fastest
-programs to compress data.
-
-This package is being provided for compatibility; gzip can be used for
-.Z files as well."

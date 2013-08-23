@@ -1,0 +1,38 @@
+NAME="ncompress"
+VERSION=4.2.4.4
+RELEASE=2
+CATEGORY="Archive"
+SUMMARY="Old LZW file compressor/decompressor"
+DESCRIPTION="Compress is a fast, simple LZW file compressor.  Compress does
+not have the highest compression rate, but it is one of the fastest programs
+to compress data. This package is being provided for compatibility; gzip can
+be used for .Z files as well."
+HOMEPAGE="http://ncompress.sourceforge.net/"
+SRC_URI="mirror://sourceforge/ncompress/ncompress-${VERSION}.tar.gz"
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/ncompress.git/plain/ncompress-4.2.4.4-make.patch
+	http://pkgs.fedoraproject.org/cgit/ncompress.git/plain/ncompress-4.2.4.4-lfs.patch
+	http://pkgs.fedoraproject.org/cgit/ncompress.git/plain/ncompress-4.2.4.4-filenamelen.patch
+	http://pkgs.fedoraproject.org/cgit/ncompress.git/plain/ncompress-4.2.4.4-2GB.patch
+	http://pkgs.fedoraproject.org/cgit/ncompress.git/plain/ncompress-4.2.4.4-endians.patch
+	http://pkgs.fedoraproject.org/cgit/ncompress.git/plain/ncompress-4.2.4.4-memmove.patch
+	http://pkgs.fedoraproject.org/cgit/ncompress.git/plain/ncompress-4.2.4.4-silence-gcc.patch
+"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	ln -sf Makefile.def Makefile
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	dobin compress.exe
+	dosym compress.exe /usr/bin/uncompress
+
+	echo ".so compress.1" > uncompress.1
+	doman compress.1 uncompress.1
+
+	dodoc Acknowleds LZW.INFO
+}
