@@ -1,6 +1,6 @@
 NAME="ncompress"
 VERSION=4.2.4.4
-RELEASE=2
+RELEASE=3
 CATEGORY="Archive"
 SUMMARY="Old LZW file compressor/decompressor"
 DESCRIPTION="Compress is a fast, simple LZW file compressor.  Compress does
